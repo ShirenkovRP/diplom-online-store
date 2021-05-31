@@ -1,0 +1,52 @@
+###
+# eedbf39f97920864476f30aad410c32887472c49	user-test
+# 6293e66efb4f2009d0afdebf3294ca809f664d23	admin
+
+# примеры API-запросов
+
+# получение списка подборок
+GET localhost:8000/api/v1/collections/
+Content-Type: application/json
+
+###
+
+# получение подборки по id
+GET localhost:8000/api/v1/collections/2
+Content-Type: application/json
+
+###
+
+# создание подборки
+POST localhost:8000/api/v1/collections/
+Content-Type: application/json
+Authorization: Token 6293e66efb4f2009d0afdebf3294ca809f664d23
+
+{
+  "title": "test_collection",
+  "text": "test",
+  "products_list": [
+    {
+      "product_id": 7
+    }
+  ]
+}
+
+###
+
+# изменение подборки
+PATCH localhost:8000/api/v1/collections/3/
+Content-Type: application/json
+Authorization: Token 6293e66efb4f2009d0afdebf3294ca809f664d23
+
+{
+  "title": "update test_collection"
+}
+
+###
+
+# удаление
+DELETE localhost:8000/api/v1/collections/3/
+Content-Type: application/json
+Authorization: Token 6293e66efb4f2009d0afdebf3294ca809f664d23
+
+###

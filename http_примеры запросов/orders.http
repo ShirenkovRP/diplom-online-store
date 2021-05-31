@@ -1,0 +1,86 @@
+###
+# eedbf39f97920864476f30aad410c32887472c49	user-test
+# 6293e66efb4f2009d0afdebf3294ca809f664d23	admin
+
+# примеры API-запросов
+
+# получение списка заказов
+GET localhost:8000/api/v1/orders/
+Content-Type: application/json
+Authorization: Token 6293e66efb4f2009d0afdebf3294ca809f664d23
+
+###
+
+# получение заказа по id
+GET localhost:8000/api/v1/orders/3
+Content-Type: application/json
+Authorization: Token 6293e66efb4f2009d0afdebf3294ca809f664d23
+
+###
+
+# создание заказа
+POST localhost:8000/api/v1/orders/
+Content-Type: application/json
+Authorization: Token eedbf39f97920864476f30aad410c32887472c49
+
+{
+  "positions": [
+    {
+      "product_id": 5,
+      "amount": 1
+    }
+  ]
+}
+
+###
+
+# изменение заказа
+PATCH localhost:8000/api/v1/orders/4/
+Content-Type: application/json
+Authorization: Token eedbf39f97920864476f30aad410c32887472c49
+
+{
+  "positions": [
+    {
+      "product_id": 6,
+      "amount": 2
+    }
+  ]
+}
+
+###
+
+# фильтрация по по статусу заказа
+GET localhost:8000/api/v1/orders/?status=NEW
+Content-Type: application/json
+Authorization: Token eedbf39f97920864476f30aad410c32887472c49
+
+###
+
+# фильтрация по сумме заказа
+GET localhost:8000/api/v1/orders/?order_sum=4596.0
+Content-Type: application/json
+Authorization: Token eedbf39f97920864476f30aad410c32887472c49
+
+###
+
+# фильтрация по дате создания заказа
+GET localhost:8000/api/v1/orders/?created_at_after=2021-05-31&created_at_before=2021-05-31
+Content-Type: application/json
+Authorization: Token eedbf39f97920864476f30aad410c32887472c49
+
+###
+
+# фильтрация заказа по продукту
+GET localhost:8000/api/v1/orders/?product_id=5
+Content-Type: application/json
+Authorization: Token eedbf39f97920864476f30aad410c32887472c49
+
+###
+
+# удаление
+DELETE localhost:8000/api/v1/orders/4/
+Content-Type: application/json
+Authorization: Token eedbf39f97920864476f30aad410c32887472c49
+
+###

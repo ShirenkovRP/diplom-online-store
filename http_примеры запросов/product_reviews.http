@@ -1,0 +1,66 @@
+###
+# eedbf39f97920864476f30aad410c32887472c49	user-test
+# 6293e66efb4f2009d0afdebf3294ca809f664d23	admin
+
+# примеры API-запросов
+
+# получение списка отзывов
+GET localhost:8000/api/v1/product-reviews/
+Content-Type: application/json
+
+###
+
+# получение отзыва по id
+GET localhost:8000/api/v1/product-reviews/3
+Content-Type: application/json
+
+###
+
+# создание отзыва
+POST localhost:8000/api/v1/product-reviews/
+Content-Type: application/json
+Authorization: Token eedbf39f97920864476f30aad410c32887472c49
+
+{
+  "product": 4,
+  "text": "Хорошая книга",
+  "rating": 5
+}
+
+###
+
+# изменение отыва
+PATCH localhost:8000/api/v1/product-reviews/4/
+Content-Type: application/json
+Authorization: Token eedbf39f97920864476f30aad410c32887472c49
+
+{
+  "text": "обновленный отзыв на хорошуу книгу"
+ }
+
+###
+
+# фильтрация по пользователю
+GET localhost:8000/api/v1/product-reviews/?user=2
+Content-Type: application/json
+
+###
+
+# фильтрация отзывов по дате создания
+GET localhost:8000/api/v1/product-reviews/?created_at_after=2021-05-28&created_at_before=2021-05-30
+Content-Type: application/json
+
+###
+
+# фильтрация списка отзывов по продукту
+GET localhost:8000/api/v1/product-reviews/?product=3
+Content-Type: application/json
+
+###
+
+# удаление
+DELETE localhost:8000/api/v1/product-reviews/4/
+Content-Type: application/json
+Authorization: Token eedbf39f97920864476f30aad410c32887472c49
+
+###

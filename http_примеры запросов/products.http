@@ -1,0 +1,66 @@
+###
+# eedbf39f97920864476f30aad410c32887472c49	user-test
+# 6293e66efb4f2009d0afdebf3294ca809f664d23	admin
+
+# примеры API-запросов
+
+# получение списка продуктов
+GET localhost:8000/api/v1/products/
+Content-Type: application/json
+
+###
+
+# получение продукта по id
+GET localhost:8000/api/v1/products/5
+Content-Type: application/json
+
+###
+
+# создание продукта
+POST localhost:8000/api/v1/products/
+Content-Type: application/json
+Authorization: Token 6293e66efb4f2009d0afdebf3294ca809f664d23
+
+{
+  "name": "Новый продукт",
+  "description": "Описание нового продукта",
+  "price": 1000
+}
+
+###
+
+# изменение наименования продукта
+PATCH localhost:8000/api/v1/products/8/
+Content-Type: application/json
+Authorization: Token 6293e66efb4f2009d0afdebf3294ca809f664d23
+
+{
+  "name": "Обновленный продукт"
+ }
+
+###
+
+# фильтрация по наименованию
+GET localhost:8000/api/v1/products/?name=Pro Git
+Content-Type: application/json
+
+###
+
+# фильтрация по цене
+GET localhost:8000/api/v1/products/?price_min=1060&price_max=1100
+Content-Type: application/json
+
+###
+
+# фильтрация по описанию
+GET localhost:8000/api/v1/products/?description=Описание
+Content-Type: application/json
+
+###
+
+# удаление
+DELETE localhost:8000/api/v1/products/8/
+Content-Type: application/json
+Authorization: Token 6293e66efb4f2009d0afdebf3294ca809f664d23
+
+###
